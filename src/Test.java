@@ -5,11 +5,11 @@ public class Test
 {
     public static void main(final String[] args)
     {
-        int humanScore = 0;
+        int humanScore = 1;
         int humanTotal = 0;
-        int computerScore = 0;
+
         int subtotal = 0;
-        int humanRoll, computerRoll;
+        int humanRoll;
         final Scanner keyboard = new Scanner(System.in);
         final Random rand = new Random();
         char choice = 'h';
@@ -17,7 +17,7 @@ public class Test
         System.out.println("Welcome to the game of Pig!\n");
 
 
-        while (computerScore < 100 && humanScore < 100)
+        while (humanScore < 100 )
         {
             do
             {
@@ -55,35 +55,7 @@ public class Test
             humanScore = 0;
 
             System.out.println();
-            System.out.println("It is the computer's turn.");
-            do
-            {
-                computerRoll = rand.nextInt(6) + 1;
-                System.out.println("The computer rolled: " +
-                        computerRoll);
-                if (computerRoll == 1)
-                {
-                    computerScore = 0;
-                    System.out.print("The computer lost its turn!");
-                    System.out.println(" Computer total is " +
-                            subtotal);
-                    break;
-                }
-                else
-                {
-                    computerScore += computerRoll;
-                    if (computerScore >= 20 || subtotal >= 100)
-                    {
-                        System.out.println("The computer holds");
-                        break;
-                    }
-                }
 
-            }while (computerRoll != 1 && subtotal <=20);
-            subtotal += computerScore;
-            System.out.println("The computer's score is " +
-                    subtotal + "\n");
-            computerScore = 0;
         }
         while (humanTotal >= 100)
         {
