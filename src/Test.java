@@ -53,15 +53,14 @@ public class Test {
             } while  (Roll != 1 && play != "yes");
 
             Total += Score;
-            System.out.println("Your score is " +
-                    Total);
-            Score = 0;
 
             System.out.println();
 
         }
         while (Total >= 100) {
-            System.out.println("YOU WIN!");
+            System.out.println("You have scored over 100\n" +
+                    "Thank you for playing!\n!");
+            break;
 
         }
     }
