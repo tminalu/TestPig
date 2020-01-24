@@ -1,69 +1,68 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Test
-{
-    public static void main(final String[] args)
-    {
-        int humanScore = 1;
-        int humanTotal = 0;
+public class Test {
+    public static void main(final String[] args) {
+        int Score = 0;
+        int Total = 0;
+        char repeat;
 
-        int subtotal = 0;
-        int humanRoll;
+        String play= "yes";
+
+        int Roll;
+        int Roll2;
         final Scanner keyboard = new Scanner(System.in);
-        final Random rand = new Random();
-        char choice = 'h';
+         Random rand1 = new Random();
+         Random rand2= new Random();
+
         String input;
-        System.out.println("Welcome to the game of Pig!\n");
+        System.out.println("Welcome! Let's play Roll Dice:\n");
 
 
-        while (humanScore < 100 )
-        {
-            do
-            {
-                humanRoll = rand.nextInt(6) + 1;
-                System.out.println("You rolled: " + humanRoll);
-                if (humanRoll == 1)
-                {
-                    humanScore = 0;
-                    System.out.print("You lose your turn! ");
-                    System.out.print("Your total is " + humanTotal);
-                    break;
-                }
-                else
-                {
-                    humanScore += humanRoll;
-                    System.out.print("Your turn score is " +
-                            humanScore);
-                    System.out.println(" If you hold you will have " +
-                            humanScore + " points.");
-                    System.out.println("Enter 'r' to roll " +
-                            "again, 'h' to hold.");
-                    input = keyboard.nextLine();
-                    choice = input.charAt(0);
+        while (play == "yes" && Score <100) {
+            do {
+                Roll = rand1.nextInt(6) + 1;
+                Roll2=rand2.nextInt(6) +1;
+                System.out.println("Your rolls  " + Roll + " & " +
+                        "" +
+                        Roll2);
+                System.out.println("Score: " + Roll + Roll2);
+                System.out.println("Roll again ?"  +play
+                );
+                input = keyboard.nextLine();
 
-                    if (choice == 'h')
-                    {
+
+                if (Roll == 1 && Roll2 ==1) {
+                    Score += 25;
+
+
+                } else {
+
+
+                    Score += Roll + Roll2;
+                    System.out.print("Your score is " +
+                            Score);
+
+
+
+
+                    if ("yes" == play) {
                         break;
                     }
                 }
-            }while (humanRoll != 1 && choice != 'h');
+            } while  (Roll != 1 && play != "yes");
 
-            humanTotal += humanScore;
+            Total += Score;
             System.out.println("Your score is " +
-                    humanTotal);
-            humanScore = 0;
+                    Total);
+            Score = 0;
 
             System.out.println();
 
         }
-        while (humanTotal >= 100)
-        {
+        while (Total >= 100) {
             System.out.println("YOU WIN!");
-        }
-        while (subtotal >= 100)
-        {
-            System.out.println("THE COMPUTER WINS!");
+
         }
     }
 }
